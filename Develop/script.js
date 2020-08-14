@@ -1,4 +1,12 @@
 // Assignment code here
+// Create password criteria
+
+
+
+
+
+
+
 
 
 // Get references to the #generate element
