@@ -1,81 +1,137 @@
 // Assignment code here
 
-// Create password criteria
-// character types
-//generate array of letters lower and uppercase
+//click button to generate password  ----- generateBtn.addEventListener("click", writePassword);
 
-var lowerCaseAlpha = ["a", "b", "c", "d", "e", "f", "g" , "h"];
-var upperCaseAlpha = ["A", "B", "C"];
-var specialChars = ["!", "# ", "$"];
-var numChar = [1,2,3,4,5,6,7,8,9,0];
+// prompts for password criteria
+// set arrays for pw criteria
+var lowerCaseAlpha = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z"
+];
+var upperCaseAlpha = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z"
+];
+var specialChars = [
+  " ",
+  "!",
+  "#",
+  "$",
+  "%",
+  "&",
+  "(",
+  ")",
+  "'",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  ">",
+  "?",
+  "@",
+  "[",
+  "]",
+  "{",
+  "}",
+  "|",
+  "~"
+];
+var numbers = [
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+0
+];
 
-//generate array of numbers
-// random numbers to generate those number
-//!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-//generate array of special chars
-//specialChars = array['!', '@'];
+// ---prompt for length of password at least 8 but no more than 128
+// --- prompt character types
+//----- uppercase letters
+//----- lowecase letters
+//----- numbers
+//----- special characters
+
+// after each character type, validate to ensure at least one character type has been chosen
+
+// when all prompts answered
+// -- generate password
+// -- password displayed in alert or written to the page
 
 
-// prompt length of password at min 8 max 128
-// choose length of password
-var pwGenLength = function() {
-  var pwLength = window.prompt("Select the number of characters you want in your password. Starting with 8 and up to 128?");
-  pwLength = parseInt(pwLength);
-  console.log(pwLength);
-  if(isNaN(pwLength) === true) {
-    alert('Password length must be a number');
+
+
+
+
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
 }
-  if (pwLength => 8 && pwLegnth <= 128) {
-    // valdidate the length of the password
-  } else {
-    window.alert("Password must be between 8 and 128 characters. Try again");
-    return pwGenLenth();
-} 
 
-
-};
-
-
-// var lowerCase = confirm("Click OK if you want lowercase letters");
-// var upperCase = confirm("Click OK to have uppercase letters in your password");
-// var isSpecial = confirm("Click OK to have special characters in your password");
-// var isNumber = confirm("Click OK to include numbers in your password");
-
-//window.alert("Select the number of characters you want in your password. Starting with 8 and up to 128?");
-
-// var getPwOptions = function () {
-// // Do you want to use lowercase letters? confirm
-// var lower = window.confirm("do you want to use lowercase?");
-// if (lower) {
-//   //choose lower alpha
-//   // lowerAlpha = true;
-// } else {
-//   // break out of lower
-// };
-// // Do you want to use uppercase letters? confirm
-// if (upperAlpha) {
-//   //choose lower alphe
-// } else {
-//   // no upper alpha
-// };
-// // Do you want to use numbers? confirm
-// if (numbers) {
-
-// } else {
-
-// };
-// // Do you want to use specialChars? confirm
-//   if (specialChars) {
-
-// } else {
-  
-// };
-// }
-
-
-// prompt for letters
-// validate -  at least one character type selected
-// prompt for numbers
-// validate
-//prompt for special chars
-// validate
+//click button to generate password
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
