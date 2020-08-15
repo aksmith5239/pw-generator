@@ -103,15 +103,45 @@ var numbers = [
 ];
 
 // ---prompt for length of password at least 8 but no more than 128
-// --- prompt character types
-//----- uppercase letters
-//----- lowecase letters
-//----- numbers
-//----- special characters
+var definePasswordLength = function() {
+  var pwLength = window.prompt("How many characters would you like your password to be?");
+  parseInt(pwLength);
+  console.log(pwLength);
+  if (pwLength < 8 || pwLength > 128) {
+    window.alert("You must choose a length of at least 8 and no more than 128. Please try again.");
+    return definePasswordLength();
+  } // end var length
+}; // end definePassword Length funtion
 
+var definePasswordCriteria = function() {
+
+  // --- prompt character types - letters, numbers, special chars
+  var includeLowerCase = window.confirm("Click OK to include lower case letters");
+  console.log(includeLowerCase);
+  
+  var includeUpperCase = window.confirm("Click OK to include UPPER case letters");
+  console.log(includeUpperCase);
+  
+  var includeNumbers = window.confirm("Click OK to include numbers");
+  console.log(includeNumbers);
+  
+  var includeSpecialChars = window.confirm("Click OK to include special characters");
+  console.log(includeSpecialChars);
+ 
 // after each character type, validate to ensure at least one character type has been chosen
+  if (includeLowerCase === false && includeUpperCase === false && includeNumbers === false && includeSpecialChars === false ) {
+    window.alert("You must choose at least one character type. Please try again.");
+   return definePasswordCriteria();
+  }
 
-// when all prompts answered
+}; // end define password criteria
+//make sure password is the length specified and has the criteria specified
+
+
+
+definePasswordLength();
+definePasswordCriteria();
+
 // -- generate password
 // -- password displayed in alert or written to the page
 
