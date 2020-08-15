@@ -101,7 +101,10 @@ var numbers = [
 9,
 0
 ];
-
+// if user cancels the password generator
+var cancelPassword = function() {
+  window.alert("You have chosen to cancel your password generation. Goodbye!");
+}
 // ---prompt for length of password at least 8 but no more than 128
 var definePasswordLength = function() {
   var pwLength = window.prompt("How many characters would you like your password to be?");
@@ -111,6 +114,10 @@ var definePasswordLength = function() {
     window.alert("You must choose a length of at least 8 and no more than 128. Please try again.");
     return definePasswordLength();
   } // end var length
+  if (isNaN(pwLength)) {
+    window.alert("The length of your password must be a number. Please try again.");
+    return definePasswordLength();
+  }
 }; // end definePassword Length funtion
 
 var definePasswordCriteria = function() {
@@ -133,6 +140,96 @@ var definePasswordCriteria = function() {
     window.alert("You must choose at least one character type. Please try again.");
    return definePasswordCriteria();
   }
+  // three options chosen
+  if (includeLowerCase === false && includeUpperCase === true && includeNumbers === true && includeSpecialChars === true ) {
+   // password includes all but lowercase letters  
+  var option1 = window.confirm("Your password will contain upper case letters, numbers and special characters. Click OK to generate password.");
+  if(option1){
+    // if user clicks OK call function that gets the characters out of an array and limits by password length 
+  } else {
+     // if user clicks cancel call function that says goodbye
+    cancelPassword();
+    }
+  } 
+
+  else if (includeLowerCase === true && includeUpperCase === false && includeNumbers === true && includeSpecialChars === true  ) {
+    // password includes all but uppercase letters 
+    window.confirm("Your password will contain lower case letters, numbers and special characters. Click OK to generate password.");
+  } 
+
+  else if (includeLowerCase === true && includeUpperCase === true && includeNumbers === false && includeSpecialChars === true  ) {
+    // password includes all but numbers 
+    window.confirm("Your password will contain lower case letters, upper case letters and special characters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === true && includeUpperCase === true && includeNumbers === true && includeSpecialChars === false  ) {
+    // password includes all but special characters
+    window.confirm("Your password will contain lower case letters, upper case letters and numbers. Click OK to generate password.");
+  } 
+  // two options chosen
+  else if (includeLowerCase === false && includeUpperCase === false && includeNumbers === true && includeSpecialChars === true  ) {
+    // password includes only numbers and special characters
+    window.confirm("Your password will contain numbers and special characters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === true && includeUpperCase === true && includeNumbers === false && includeSpecialChars === false  ) {
+    // password includes only upper and lower case letters
+    window.confirm("Your password will contain upper and lower case letters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === true && includeUpperCase === false && includeNumbers === true && includeSpecialChars === false  ) {
+    // password includes only numbers and lowercase letters
+    window.confirm("Your password will contain numbers and lower case letters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === false && includeUpperCase === true && includeNumbers === false && includeSpecialChars === true  ) {
+    // password includes only upper and lower case letters
+    window.alert("includes only uppercase letters and special characters");
+    window.confirm("Your password will contain special characters and upper case letters. Click OK to generate password.");
+  }
+
+  else if (includeLowerCase === true && includeUpperCase === false && includeNumbers === false && includeSpecialChars === true  ) {
+    // password includes only numbers and lowercase letters
+    window.confirm("Your password will contain special characters and lower case letters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === false && includeUpperCase === true && includeNumbers === true && includeSpecialChars === false  ) {
+    // password includes only upper and numbers
+    window.confirm("Your password will contain numbers and upper case letters. Click OK to generate password.");
+  }
+  
+  // one option chosen
+  else if (includeLowerCase === true && includeUpperCase === false && includeNumbers === false && includeSpecialChars === false  ) {
+    // password includes only lower case letters
+    window.confirm("Your password will contain only lower case letters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === false && includeUpperCase === true && includeNumbers === false && includeSpecialChars === false  ) {
+    // password includes only upper case letters
+    window.confirm("Your password will contain only upper case letters. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === false && includeUpperCase === false && includeNumbers === true && includeSpecialChars === false  ) {
+    // password includes only numbers
+    window.alert("includes only numbers ");
+    window.confirm("Your password will contain only numbers. Click OK to generate password.");
+  } 
+  
+  else if (includeLowerCase === false && includeUpperCase === false && includeNumbers === false && includeSpecialChars === true  ) {
+    // password includes only special characters
+    window.confirm("Your password will contain only special characters. Click OK to generate password.");
+  } 
+  // all are true
+  else if(includeLowerCase === true && includeUpperCase === true && includeNumbers === true && includeSpecialChars === true ) {
+      // all are true
+      window.confirm("Your password will contain all lower and upper case letters, numbers and special characteres. Click OK to generate password.");
+  } 
+  // have not included correct options
+  else {
+    window.alert("Our bad! We have not included this yet!");
+  }
+   
+
 
 }; // end define password criteria
 //make sure password is the length specified and has the criteria specified
