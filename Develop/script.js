@@ -282,12 +282,14 @@ var definePasswordCriteria = function() {
   else {
     window.alert("Our bad! We have not included your selection yet!");
   }
+ 
+ console.log(pwArray);
 
 }; // end define password criteria
 //make sure password is the length specified and has the criteria specified
 
 definePasswordCriteria();
-console.log(pwLength);
+
 // -- generate password
 // -- password displayed in alert or written to the page
 
