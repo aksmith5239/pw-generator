@@ -297,14 +297,8 @@ return getPassword.join('');
 
 }; // end generate password function
 
-
-
 // -- generate password
 // -- password displayed in alert or written to the page
-
-// Get references to the #generate element
-
-
 
 // Write password to the #password input
 function writePassword() {
@@ -314,7 +308,9 @@ debugger;
   passwordText.value = password;
   
 }
-generateBtn.addEventListener("click", writePassword);
 
 //click button to generate password
 // Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
