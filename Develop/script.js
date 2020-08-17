@@ -6,6 +6,7 @@
 // set arrays for pw criteria
 var pwArray = '';
 var optionConfirm = '';
+var getPassword = [];
 var lowerCaseAlpha = [
   "a",
   "b",
@@ -105,8 +106,9 @@ var numbers = [
 ];
 
 // ---prompt for length of password at least 8 but no more than 128
+var generateBtn = document.querySelector("#generate");
 var generatePassword = function() {
-  
+  //make sure password is the length specified and has the criteria specified
   var definePasswordLength = function() {
     pwLength = window.prompt("How many characters would you like your password to be?");
     parseInt(pwLength);
@@ -285,39 +287,34 @@ var generatePassword = function() {
 //   console.log(pwArray);
 //  }
 
-  var getPassword =[];
+  // getPassword =[];
   for (var i = 0; i < pwLength; i++) {
   var randomValues = pwArray[Math.floor(Math.random() * pwArray.length)];
   getPassword = getPassword.concat(randomValues);
 }
 
+return getPassword.join('');
+
+}; // end generate password function
 
 
-console.log(getPassword.join(''));
-window.alert(getPassword);
 
-}; // end define password criteria
-//make sure password is the length specified and has the criteria specified
-
-generatePassword();
 // -- generate password
 // -- password displayed in alert or written to the page
 
 // Get references to the #generate element
 
-var generateBtn = document.querySelector("#generate");
+
 
 // Write password to the #password input
 function writePassword() {
-
+debugger;
   var password = generatePassword(getPassword);
-  document.getElementById('password').value = writePassword(getPassword);
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
+  
 }
-
+generateBtn.addEventListener("click", writePassword);
 
 //click button to generate password
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
